@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap);
+@import url(https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.72/dist/themes/light.css);
+
+
+
+#main {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+#buttons {
+    width: 100%;
+    max-width: 30rem;
+    box-sizing: border-box;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & > sl-button{
+        flex-basis: 30%;
+        margin: var(--sl-spacing-3x-small);
+        min-width: var(--sl-spacing-4x-large);
+        touch-action: manipulation;
+    }
+}
+
+.copyright {
+    text-align: center;
+    color: #bbb;
+    cursor: pointer;
+}
