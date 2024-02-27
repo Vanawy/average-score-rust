@@ -1,6 +1,6 @@
 use std::ops::Range;
 use yew::prelude::*;
-use crate::button::{Button, ButtonAction};
+use crate::button::{Button, Action};
 const WEBSITE_URL: &str = "https://vanawy.dev";
 
 pub struct Calculator {
@@ -11,7 +11,7 @@ pub struct Calculator {
 }
 
 pub enum CalculatorMsg {
-    ButtonClicked(ButtonAction),
+    ButtonClicked(Action),
 }
 
 impl Calculator {
@@ -39,13 +39,13 @@ impl Component for Calculator {
         match msg {
             CalculatorMsg::ButtonClicked(action) => {
                 match action {
-                    ButtonAction::Add(n) => {
+                    Action::Add(n) => {
                         self.scores.push(n as u64);
                     },
-                    ButtonAction::Reset => {
+                    Action::Reset => {
                         self.scores = Vec::new();
                     },
-                    ButtonAction::Delete => {
+                    Action::Delete => {
                         self.scores.pop();
                     },
                 };
@@ -72,10 +72,10 @@ impl Component for Calculator {
 
         let mut actions = Vec::new();
 
-        Range::from(1..10).for_each(|i| actions.push(ButtonAction::Add(i)));
-        actions.push(ButtonAction::Reset);
-        actions.push(ButtonAction::Add(10));
-        actions.push(ButtonAction::Delete);
+        Range::from(1..10).for_each(|i| actions.push(Action::Add(i)));
+        actions.push(Action::Reset);
+        actions.push(Action::Add(10));
+        actions.push(Action::Delete);
 
         let buttons = actions.iter().map(|action| {
             html! {
