@@ -1,6 +1,7 @@
 use std::ops::Range;
 use yew::prelude::*;
 use crate::button::{Button, ButtonAction};
+const WEBSITE_URL: &str = "https://vanawy.dev";
 
 pub struct Calculator {
     sum: u64,
@@ -86,16 +87,19 @@ impl Component for Calculator {
         }).collect::<Html>();
 
         html! {
-            <sl-card id="main">
-                <p id="scores">{scores}</p>
-                <sl-divider></sl-divider>
-                <p id="description">{summary}</p>
-                <p id="average" style="font-size: var(--sl-font-size-2x-large)">{avg}</p>
+            <div>
+                <sl-card id="main">
+                    <p id="scores">{scores}</p>
+                    <sl-divider></sl-divider>
+                    <p id="description">{summary}</p>
+                    <p id="average" style="font-size: var(--sl-font-size-2x-large)">{avg}</p>
 
-                <div id="buttons" style="text-align: center;">
-                    { buttons }
-                </div>
-            </sl-card>
+                    <div id="buttons" style="text-align: center;">
+                        { buttons }
+                    </div>
+                </sl-card>
+                <a href={ WEBSITE_URL } class="copyright">{ WEBSITE_URL }</a>
+            </div>
         }
     }
 }
