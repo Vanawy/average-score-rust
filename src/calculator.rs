@@ -56,7 +56,7 @@ impl Component for Calculator {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let mut scores = String::from("-");
-        let mut summary = String::from("- / -");
+        let mut summary = String::from("0 / 0");
         let mut avg = String::from("-");
 
         if self.count > 0 {
@@ -65,7 +65,7 @@ impl Component for Calculator {
                 .collect::<Vec<String>>()
                 .join(", ");
             summary = format!("{} / {}", self.sum, self.count);
-            avg = format!("{}", self.average);
+            avg = format!("{:.3}", self.average);
         }
 
 
