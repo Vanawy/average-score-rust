@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - run: trunk build --release --public-url ${{ github.repository }}
+      - run: trunk build --release --public-url ${{ context.repo.repo }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
